@@ -1,13 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Bq-Er-t0q">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="yNr-Xy-4LQ">
+            <objects>
+                <viewController id="8Bq-Er-t0q" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hGf-sM-Ft8"/>
+                        <viewControllerLayoutGuide type="bottom" id="TTY-SS-lXe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TfC-x2-YVc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEC-fV-Xkj">
+                                <rect key="frame" x="172" y="172" width="256" height="256"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
+                                <state key="normal" title="Start Animating" backgroundImage="btn"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="cnJ-s6-MUA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wEC-fV-Xkj" firstAttribute="centerY" secondItem="TfC-x2-YVc" secondAttribute="centerY" id="ZEe-sZ-DC8"/>
+                            <constraint firstItem="wEC-fV-Xkj" firstAttribute="centerX" secondItem="TfC-x2-YVc" secondAttribute="centerX" id="q1T-X3-2XH"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vdY-8K-CaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-273" y="371"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyFaceTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +48,98 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNF-FX-par">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <segue destination="JlA-V4-YJf" kind="embed" identifier="faceTrackerEmbed" id="X32-Tp-Sgh"/>
+                                </connections>
+                            </containerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Wqo-Vx-O70">
+                                <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEf-4u-VnG">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
+                                        <state key="normal" image="heart"/>
+                                        <connections>
+                                            <action selector="changeAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zte-gN-ZRn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUx-V0-eQ0">
+                                        <rect key="frame" x="120" y="0.0" width="120" height="100"/>
+                                        <state key="normal" title="Button" image="lips"/>
+                                        <connections>
+                                            <action selector="changeAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PIJ-S1-Nu5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xo-nO-do8">
+                                        <rect key="frame" x="240" y="0.0" width="120" height="100"/>
+                                        <state key="normal" title="Button" image="mustache"/>
+                                        <connections>
+                                            <action selector="changeAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nIa-Y4-seX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Av-3l-Yzl">
+                                        <rect key="frame" x="360" y="0.0" width="120" height="100"/>
+                                        <state key="normal" title="Button" image="nose"/>
+                                        <connections>
+                                            <action selector="changeAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g3I-TU-KQL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTQ-f3-yYx">
+                                        <rect key="frame" x="480" y="0.0" width="120" height="100"/>
+                                        <state key="normal" title="Button" image="horns"/>
+                                        <connections>
+                                            <action selector="changeAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GUF-f5-J8o"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="7Ys-6L-hpt"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kNF-FX-par" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4Ld-DV-3YA"/>
+                            <constraint firstItem="kNF-FX-par" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="74x-h2-azN"/>
+                            <constraint firstItem="kNF-FX-par" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="DUG-1g-mIj"/>
+                            <constraint firstAttribute="trailing" secondItem="Wqo-Vx-O70" secondAttribute="trailing" id="d1d-qG-4nP"/>
+                            <constraint firstAttribute="trailing" secondItem="kNF-FX-par" secondAttribute="trailing" id="g8x-zx-nPI"/>
+                            <constraint firstItem="Wqo-Vx-O70" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zDd-gg-RUO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Wqo-Vx-O70" secondAttribute="bottom" id="zdJ-wJ-ZT4"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="409" y="371"/>
+        </scene>
+        <!--Face Tracker View Controller-->
+        <scene sceneID="2XY-ex-hPN">
+            <objects>
+                <viewController id="JlA-V4-YJf" customClass="FaceTrackerViewController" customModule="FaceTracker" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bOE-bS-TR0"/>
+                        <viewControllerLayoutGuide type="bottom" id="86i-RE-kP8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1A0-gb-zIr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ba7-66-ntu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="416" y="1173"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btn" width="256" height="256"/>
+        <image name="heart" width="256" height="256"/>
+        <image name="horns" width="800" height="198"/>
+        <image name="lips" width="256" height="256"/>
+        <image name="mustache" width="2006" height="665"/>
+        <image name="nose" width="120" height="120"/>
+    </resources>
 </document>
